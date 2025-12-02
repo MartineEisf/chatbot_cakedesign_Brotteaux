@@ -19,10 +19,12 @@
     box-sizing: border-box;
 }
 
-html, body { 
+html,
+body {
     height: 100%;
     width: 100%;
-    overflow-x: hidden; /* Empêche le débordement horizontal */
+    overflow-x: hidden;
+    /* Empêche le débordement horizontal */
 }
 
 body {
@@ -39,21 +41,29 @@ body {
 /* Le wrapper principal qui contient toutes les sections */
 .wrapper {
     width: 100%;
-    max-width: 1500px; /* Garde une largeur max pour les très grands écrans */
-    margin: 0 auto; /* Centre le contenu */
+    max-width: 1500px;
+    /* Garde une largeur max pour les très grands écrans */
+    margin: 0 auto;
+    /* Centre le contenu */
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 24px; /* Espace entre les blocs */
+    gap: 24px;
+    /* Espace entre les blocs */
 }
 
 /* Tous les conteneurs directs du wrapper sont maintenant des blocs simples */
 .info-column,
-.chat-container,
 .notes-column,
 .notes-section-bottom {
     width: 100%;
-    position: static; /* On supprime le 'sticky' pour la base mobile */
+    position: static;
+    /* On supprime le 'sticky' pour la base mobile */
+}
+
+.chat-container {
+    width: 100%;
+    position: static;
 }
 
 .notes-section-bottom {
@@ -72,16 +82,17 @@ body {
     display: flex;
     flex-direction: column;
     background: var(--white);
-    border-radius: 12px; 
-    box-shadow: 0 4px 16px rgba(44, 44, 44, 0.08); 
-    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(44, 44, 44, 0.08);
+    overflow: visible;
+    /* Changé de hidden à visible pour permettre le sticky */
     border: 1px solid rgba(212, 165, 116, 0.15);
     /* min-height: 70vh; a été supprimé pour résoudre le problème d'espacement */
 }
 
 .notes-textarea {
     width: 100%;
-    height: 200px; 
+    height: 200px;
     padding: 12px 14px;
     border: 2px solid rgba(139, 115, 85, 0.2);
     border-radius: 10px;
@@ -107,18 +118,18 @@ body {
     flex-shrink: 0;
 }
 
-.header h1 { 
-    font-size: 26px; 
-    font-weight: 400; 
+.header h1 {
+    font-size: 26px;
+    font-weight: 400;
     letter-spacing: 2px;
     margin-bottom: 8px;
     text-transform: uppercase;
     font-family: 'Bodoni Moda', Georgia, serif;
 }
 
-.subtitle { 
-    font-size: 13px; 
-    font-weight: 400; 
+.subtitle {
+    font-size: 13px;
+    font-weight: 400;
     opacity: 0.92;
     letter-spacing: 0.5px;
     line-height: 1.6;
@@ -126,12 +137,12 @@ body {
     margin: 0 auto;
 }
 
-.header-actions { 
-    display: none; 
+.header-actions {
+    display: none;
 }
 
-.name-input-section { 
-    padding: 18px 24px; 
+.name-input-section {
+    padding: 18px 24px;
     background: linear-gradient(135deg, rgba(240, 200, 160, 0.12), rgba(212, 165, 116, 0.08));
     border-bottom: 1px solid rgba(212, 165, 116, 0.2);
     display: flex;
@@ -139,25 +150,25 @@ body {
     align-items: center;
 }
 
-.name-input { 
+.name-input {
     flex: 1;
-    padding: 14px 18px; 
+    padding: 14px 18px;
     border: 2px solid rgba(139, 115, 85, 0.3);
-    border-radius: 10px; 
-    font-size: 15px; 
-    font-family: Georgia, serif; 
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: Georgia, serif;
     transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
     background-color: var(--white);
 }
 
-.name-input:focus { 
-    outline: none; 
+.name-input:focus {
+    outline: none;
     border-color: var(--accent);
     background-color: var(--white);
     box-shadow: 0 0 0 4px rgba(212, 165, 116, 0.15);
 }
 
-.name-input::placeholder { 
+.name-input::placeholder {
     color: var(--secondary);
     font-weight: 400;
     font-style: italic;
@@ -205,38 +216,39 @@ body {
     /* No gap needed anymore as it's a single element wrapper */
 }
 
-.notes-section, .disclaimer-section {
+.notes-section,
+.disclaimer-section {
     width: 100%;
 }
 
 
-.info-card-logo { 
-    height: 120px; 
-    width: auto; 
-    margin-bottom: 16px; 
-    display: block; 
+.info-card-logo {
+    height: 120px;
+    width: auto;
+    margin-bottom: 16px;
+    display: block;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(44, 44, 44, 0.08);
 }
 
-.info-card h3 { 
-    margin: 0 0 12px 0; 
-    font-size: 17px; 
+.info-card h3 {
+    margin: 0 0 12px 0;
+    font-size: 17px;
     color: var(--primary);
     font-weight: 500;
     letter-spacing: 1px;
     text-transform: uppercase;
 }
 
-.info-card ul { 
-    margin: 8px 0 0 20px; 
-    padding: 0; 
+.info-card ul {
+    margin: 8px 0 0 20px;
+    padding: 0;
     font-size: 12px;
     line-height: 1.8;
 }
 
-.info-card p { 
-    margin: 8px 0; 
+.info-card p {
+    margin: 8px 0;
     font-size: 12px;
     line-height: 1.8;
 }
@@ -256,56 +268,80 @@ body {
     min-height: 300px;
 }
 
-.chat-box::-webkit-scrollbar { width: 8px; }
-.chat-box::-webkit-scrollbar-track { background: var(--light); }
-.chat-box::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
-.chat-box::-webkit-scrollbar-thumb:hover { background: var(--secondary); }
-
-.message { 
-    display: flex; 
-    animation: slideIn 0.35s ease-out; 
+.chat-box::-webkit-scrollbar {
+    width: 8px;
 }
 
-@keyframes slideIn { 
-    from { opacity: 0; transform: translateY(10px); } 
-    to { opacity: 1; transform: none; } 
+.chat-box::-webkit-scrollbar-track {
+    background: var(--light);
 }
 
-.message.user { justify-content: flex-end; }
-.message.ai { justify-content: flex-start; }
+.chat-box::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 4px;
+}
+
+.chat-box::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+}
+
+.message {
+    display: flex;
+    animation: slideIn 0.35s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.message.user {
+    justify-content: flex-end;
+}
+
+.message.ai {
+    justify-content: flex-start;
+}
 
 .bubble {
-    max-width: 80%; 
-    padding: 16px 22px; 
-    border-radius: 18px; 
+    max-width: 80%;
+    padding: 16px 22px;
+    border-radius: 18px;
     word-wrap: break-word;
-    font-size: 15px; 
-    line-height: 1.7; 
+    font-size: 15px;
+    line-height: 1.7;
     font-weight: 400;
 }
 
-.message.user .bubble { 
+.message.user .bubble {
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-    color: var(--white); 
-    border-bottom-right-radius: 6px; 
+    color: var(--white);
+    border-bottom-right-radius: 6px;
     box-shadow: 0 3px 12px rgba(212, 165, 116, 0.18);
 }
 
-.message.ai .bubble { 
+.message.ai .bubble {
     background: var(--light);
-    color: var(--primary); 
-    border-bottom-left-radius: 6px; 
+    color: var(--primary);
+    border-bottom-left-radius: 6px;
     box-shadow: 0 3px 12px rgba(44, 44, 44, 0.06);
     border: 1px solid rgba(139, 115, 85, 0.12);
 }
 
-.typing-indicator { 
-    display: flex; 
-    gap: 8px; 
-    align-items: center; 
-    padding: 14px 20px; 
-    background: var(--light); 
-    border-radius: 18px; 
+.typing-indicator {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 14px 20px;
+    background: var(--light);
+    border-radius: 18px;
     width: fit-content;
     border: 1px solid rgba(139, 115, 85, 0.12);
 }
@@ -330,87 +366,102 @@ body {
     background-color: var(--accent);
 }
 
-.dot-flashing::before { left: -12px; animation: dotFlashing 1s infinite alternate; animation-delay: 0s; }
-.dot-flashing::after { left: 12px; animation: dotFlashing 1s infinite alternate; animation-delay: 1s; }
+.dot-flashing::before {
+    left: -12px;
+    animation: dotFlashing 1s infinite alternate;
+    animation-delay: 0s;
+}
+
+.dot-flashing::after {
+    left: 12px;
+    animation: dotFlashing 1s infinite alternate;
+    animation-delay: 1s;
+}
 
 @keyframes dotFlashing {
-    0% { background-color: var(--accent); }
-    50%, 100% { background-color: rgba(212, 165, 116, 0.3); }
+    0% {
+        background-color: var(--accent);
+    }
+
+    50%,
+    100% {
+        background-color: rgba(212, 165, 116, 0.3);
+    }
 }
 
-.input-area-wrapper { 
-    padding: 0; 
-    background: var(--white); 
-    border-top: 1px solid rgba(139, 115, 85, 0.15); 
+.input-area-wrapper {
+    padding: 0;
+    background: var(--white);
+    border-top: 1px solid rgba(139, 115, 85, 0.15);
 }
 
-.input-area { 
-    display: flex; 
-    gap: 12px; 
-    padding: 16px 20px; 
+.input-area {
+    display: flex;
+    gap: 12px;
+    padding: 16px 20px;
 }
 
-.disclaimer-text { 
-    font-size: 11px; 
-    color: var(--secondary); 
+.disclaimer-text {
+    font-size: 11px;
+    color: var(--secondary);
     padding: 0 20px;
     margin-top: 12px;
-    font-style: italic; 
+    font-style: italic;
     text-align: center;
     line-height: 1.6;
 }
 
-#messageInput { 
-    flex: 1; 
-    padding: 14px 20px; 
-    border: 2px solid rgba(139, 115, 85, 0.2); 
-    border-radius: 10px; 
-    font-size: 15px; 
-    outline: none; 
+#messageInput {
+    flex: 1;
+    padding: 14px 20px;
+    border: 2px solid rgba(139, 115, 85, 0.2);
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
     transition: border-color 0.3s, box-shadow 0.3s, opacity 0.3s;
     font-family: Georgia, serif;
     background-color: var(--white);
     min-width: 0;
 }
 
-#messageInput:focus { 
-    border-color: var(--accent); 
-    box-shadow: 0 0 0 4px rgba(212, 165, 116, 0.12); 
+#messageInput:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(212, 165, 116, 0.12);
 }
 
-#messageInput:disabled { 
-    background-color: rgba(139, 115, 85, 0.05); 
-    cursor: not-allowed; 
-    opacity: 0.6; 
+#messageInput:disabled {
+    background-color: rgba(139, 115, 85, 0.05);
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
-#messageInput::placeholder { 
+#messageInput::placeholder {
     color: var(--secondary);
     font-style: italic;
 }
 
-#sendBtn { 
-    padding: 14px 28px; 
-    background: var(--accent); 
-    color: var(--white); 
-    border: none; 
-    border-radius: 10px; 
-    font-size: 15px; 
-    font-weight: 500; 
-    cursor: pointer; 
+#sendBtn {
+    padding: 14px 28px;
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s, opacity 0.3s, background 0.3s;
     letter-spacing: 0.5px;
 }
 
-#sendBtn:hover:not(:disabled) { 
-    transform: translateY(-2px); 
+#sendBtn:hover:not(:disabled) {
+    transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(212, 165, 116, 0.25);
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
 }
 
-#sendBtn:disabled { 
-    opacity: 0.4; 
-    cursor: not-allowed; 
+#sendBtn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
 }
 
 /* --- Calendrier --- */
@@ -421,29 +472,108 @@ body {
     box-shadow: 0 3px 12px rgba(44, 44, 44, 0.06);
     border: 1px solid rgba(212, 165, 116, 0.15);
 }
-.calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-.calendar-month-year { font-weight: normal; font-size: 1em; color: #4a3f35; }
-.calendar-nav { background: #c9a978; border: none; color: white; width: 24px; height: 24px; border-radius: 4px; cursor: pointer; font-size: 12px; transition: background 0.3s; }
-.calendar-nav:hover:not(:disabled) { background: #b8976a; }
-.calendar-nav:disabled { background: #e0e0e0; color: #999; cursor: not-allowed; }
-.calendar-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-.calendar-table th { padding: 8px; text-align: center; font-weight: normal; color: #4a3f35; border-bottom: 2px solid #e8dcc8; font-size: 1em; }
-.calendar-table td { padding: 10px; text-align: center; border: 1px solid #f5f0e8; color: #4a3f35; font-size: 1em; }
-.calendar-table td:empty { border: none; }
-.calendar-table td.monday { background-color: #e8dcc8; }
-.calendar-table td.highlighted { position: relative; }
-.calendar-table td.highlighted::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 32px; height: 32px; border: 2px solid #b8976a; border-radius: 50%; }
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.calendar-month-year {
+    font-weight: normal;
+    font-size: 1em;
+    color: #4a3f35;
+}
+
+.calendar-nav {
+    background: #c9a978;
+    border: none;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.3s;
+}
+
+.calendar-nav:hover:not(:disabled) {
+    background: #b8976a;
+}
+
+.calendar-nav:disabled {
+    background: #e0e0e0;
+    color: #999;
+    cursor: not-allowed;
+}
+
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.calendar-table th {
+    padding: 8px;
+    text-align: center;
+    font-weight: normal;
+    color: #4a3f35;
+    border-bottom: 2px solid #e8dcc8;
+    font-size: 1em;
+}
+
+.calendar-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #f5f0e8;
+    color: #4a3f35;
+    font-size: 1em;
+}
+
+.calendar-table td:empty {
+    border: none;
+}
+
+.calendar-table td.monday {
+    background-color: #e8dcc8;
+}
+
+.calendar-table td.highlighted {
+    position: relative;
+}
+
+.calendar-table td.highlighted::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32px;
+    height: 32px;
+    border: 2px solid #b8976a;
+    border-radius: 50%;
+}
 
 /* Nouveau conteneur pour la colonne de gauche */
 .sidebar-left {
     display: flex;
     flex-direction: column;
-    gap: 8px; /* Espace réduit entre info et calendrier */
+    gap: 8px;
+    /* Espace réduit entre info et calendrier */
 }
 
 /* --- Debug Panel --- */
-#debugPanel { display: none; } /* Caché par défaut */
-.debug-toggle { display: none; } /* Caché par défaut */
+#debugPanel {
+    display: none;
+}
+
+/* Caché par défaut */
+.debug-toggle {
+    display: none;
+}
+
+/* Caché par défaut */
 
 /* ============================================
    RESPONSIVE - AJOUT DE LA GRILLE POUR DESKTOP
@@ -452,31 +582,46 @@ body {
 @media (min-width: 1024px) {
     .wrapper {
         display: grid;
-        grid-template-columns: 300px 1fr 300px; /* 3 colonnes */
-        grid-template-rows: auto auto auto; /* 3 lignes auto-dimensionnées */
-        align-items: start; /* Aligne les blocs en haut de leur cellule de grille */
-        column-gap: 24px; /* Espace horizontal entre les colonnes */
-        row-gap: 16px; /* Espace vertical entre les lignes */
+        grid-template-columns: 300px 1fr 300px;
+        /* 3 colonnes */
+        grid-template-rows: auto auto auto;
+        /* 3 lignes auto-dimensionnées */
+        align-items: start;
+        /* Aligne les blocs en haut de leur cellule de grille */
+        column-gap: 24px;
+        /* Espace horizontal entre les colonnes */
+        row-gap: 16px;
+        /* Espace vertical entre les lignes */
     }
 
     /* Placement explicite avec grid-column et grid-row */
     .sidebar-left {
         grid-column: 1;
-        grid-row: 1 / 4; /* S'étend sur toutes les lignes */
+        grid-row: 1 / 4;
+        /* S'étend sur toutes les lignes */
         position: sticky;
         top: 20px;
         align-self: start;
+        max-height: calc(100vh - 40px);
+        overflow-y: auto;
     }
 
     .chat-container {
         grid-column: 2;
         grid-row: 1;
     }
-    
+
+    /* Le chat-column devient sticky pour que header + name-input bougent ensemble */
+    .chat-column {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
     .notes-section {
         grid-column: 2;
         grid-row: 2;
-        position: static; /* Pas de positionnement fixe */
+        position: static;
         align-self: start;
         justify-self: stretch;
     }
@@ -485,10 +630,10 @@ body {
         grid-column: 2;
         grid-row: 3;
     }
-    
+
     .notes-column {
         grid-column: 3;
-        grid-row: 1 / 4; /* S'étend sur toutes les lignes */
+        grid-row: 1 / 4;
         position: sticky;
         top: 20px;
         align-self: start;
